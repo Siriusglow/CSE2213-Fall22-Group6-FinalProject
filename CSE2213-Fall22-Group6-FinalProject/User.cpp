@@ -101,3 +101,8 @@ string User::getUsername() {
 string User::getPassword() {
 	return Password;
 }
+
+int User::getID() {
+	return UserId;
+}
+
