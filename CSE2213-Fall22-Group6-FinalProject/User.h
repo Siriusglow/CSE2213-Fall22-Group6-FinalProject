@@ -44,5 +44,8 @@ public:
 	string getCVV();
 	string getUsername();
 	string getPassword();
+
+	// ADDED GETID
+	int getID();
 };
 
