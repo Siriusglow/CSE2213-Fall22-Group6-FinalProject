@@ -108,5 +108,10 @@ public:
                 return userList[i].getID();
         }
         return -1;
-    }   
+    }
+
+    // Added this. Returns the total number of users. Because our count starts at zero, this will also be the next available UserID.
+    int nextID() {        
+        return userList.size();
+    }
 };

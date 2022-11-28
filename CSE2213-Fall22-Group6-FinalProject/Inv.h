@@ -15,7 +15,7 @@ public:
     {
         itemList.clear();
         ifstream infile;
-        infile.open("Inven.txt");
+        infile.open("Inventory.txt");
         if (infile.is_open())
         {
             cout << "Opened\n";

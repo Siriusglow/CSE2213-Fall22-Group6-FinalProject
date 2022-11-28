@@ -1,15 +1,19 @@
 #include <iostream>
 #include <string>
-#include "User.h"
 using namespace std;
+#include "User.h"
+#include "Inv.h"
+#include "allUser.h"
 
-bool login();
 
-int main()                                                                  // The entirity of the main function currently is testing. Class implimentation seems to work. 
+
+int main()             // The entirity of the main function currently is testing. Class implimentation seems to work. 
 {
     bool validLogIn = false;
     cout << "Welcome to Penguin Games. The best place for you that we can deliver!" << endl;
     int MenuOption = -1;
+    allUsers allUser;
+    allUser.fill();
 
     while (MenuOption != 3) {
         cout << "Please choose a menu option" << endl;
@@ -20,9 +24,26 @@ int main()                                                                  // T
         cin >> MenuOption;
         if (!cin.fail()) {
             if (MenuOption == 1) {
-                validLogIn = login();
+                string loginUsername;
+                string loginPassword;
+                cout << "Please input your username: ";
+                cin >> loginUsername;
+                cout << endl;
+
+                cout << "Please input your password: ";
+                cin >> loginPassword;
+                cout << endl;
+
+                if (allUser.login(loginUsername, loginPassword) != -1) {
+                    validLogIn = true;
+                }
+                else {
+                    validLogIn = false;
+                }
+
                 if (validLogIn) {
                     cout << "Login sucessful" << endl << endl;
+                    // Something to now gather the information based off of the returned userID from earlier. This is how all of the user functions will be created. 
                     cout << "Welcome back to the system" << endl;      // FIXME, maybe a variable to the user.
                     while (MenuOption != 5) {
                         cout << "Please choose a menu option" << endl;
@@ -50,7 +71,7 @@ int main()                                                                  // T
                                     if (!cin.fail()) {
                                         switch (MenuOption) {
                                         case 1:
-                                            cout << "FIXME case 1 was chosen" << endl;
+                                            cout << "FIXME case 1 was chosen" << endl;      // Get rid of switch as it impides the declaration of the class allUsers
                                             break;
                                         case 2:
                                             cout << "FIXME case 2 was called" << endl;
@@ -86,7 +107,11 @@ int main()                                                                  // T
                                 cout << "FIXME Option 2 was chosen" << endl;
                             }
                             else if (MenuOption == 3) {
-                                cout << "FIXME Option 3 was chosen" << endl;
+                                cout << "Below are the items that we have for sale." << endl;
+                                Inventory inv1;                                    // FIXME, rename to something more informative.
+                                inv1.fill();
+                                inv1.display();
+                                // Add stuff for adding an item from the inventory to be added to the the shopping cart
                             }
                             else if (MenuOption == 4) {
                                 cout << "FIXME Option 4 was chosen" << endl;
@@ -112,8 +137,52 @@ int main()                                                                  // T
                     cout << "Login Failed. Please try again." << endl;
                 }
             }
-            else if (MenuOption == 2) {
-                cout << "FIXME, Add a user was chosen" << endl;
+            else if (MenuOption == 2) {                                 // Add some form of input validation here. In progress to add a new user stuff
+
+
+                    cout << "FIXME, Add a user was chosen" << endl;
+                    int UserId;
+                    UserId = allUser.nextID();
+                    string name = "";
+                    cin.ignore();
+                    cout << "Please type your full name. A hyphan can be used if you have multiple first names, (ie. Mary-Katherine Smith): ";
+                    getline(cin, name);
+
+                    string address = "";
+                    cout << "Please type your address. Please include your full address, including city, state, and zip code. Please use an address that can be shipped to." << endl;
+                    cout << "Address: ";
+                    getline(cin, address);
+
+                    string email = "";
+                    cout << "Plase input your email: ";
+                    getline(cin, email);
+
+                    string phone = "";
+                    cout << "Please input your phone number: ";
+                    getline(cin, email);
+                    
+                    string CreditCardNum = "";
+                    cout << "Please input your credit card number: ";
+                    getline(cin, CreditCardNum);
+
+                    string ExpirationDate = "";
+                    cout << "Please input the expiration date of your credit card: ";
+                    getline(cin, ExpirationDate);
+
+                    string CVV = "";
+                    cout << "Please input the CVV of your credit card (the 3 numbers on the back of the card): ";
+                    getline(cin, CVV);
+
+                    string Username = "";
+                    cout << "Please type in a username for you to use: ";
+                    getline(cin, Username);
+
+                    string Password = "";
+                    cout << "Please create a password: ";
+                    getline(cin, Password);
+
+                    // FIXME Add Stuff to create a user and add said user to the file here. Also Add Stuff to make this look nice. 
+
             }
             else if (MenuOption == 3) {
                 cout << "Thank you for using the system. Have a nice day!" << endl;
@@ -130,8 +199,4 @@ int main()                                                                  // T
         }
         cout << endl;
     }
-}
-
-bool login(){
-    return true;        // FIXME. This is true currently for testing purposes.
 }
