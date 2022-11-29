@@ -14,6 +14,7 @@ class ShoppingCart
 {
 private:
     int UserId;
+    vector<InventoryItem> Items;
 
 public:
     // Constructors and Destructors
