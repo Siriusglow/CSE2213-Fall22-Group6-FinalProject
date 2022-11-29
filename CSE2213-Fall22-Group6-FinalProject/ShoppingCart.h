@@ -7,12 +7,14 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Inv.h"
 using namespace std;
 
 class ShoppingCart
 {
 private:
     int UserId;
+    vector<InventoryItem> Items;
 
 public:
     // Constructors and Destructors
@@ -21,13 +23,13 @@ public:
     ~ShoppingCart();
 
     //getter
-    int getUserID(int id);
+    int getUserID();
 
     // setter
     void setUserID(int id);
 
-    void addItem(InventoryItem item, int quantity);
-    void removeItem(InventoryItem item);
+    void addItem(InventoryItem, int);
+    void removeItem(InventoryItem, int);
     void viewCart();
     void clearCart();
     void checkout();

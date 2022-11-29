@@ -128,10 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CSE2213-Fall22-Group6-FinalProject.cpp" />
+    <ClCompile Include="ShoppingCart.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="allUser.h" />
+    <ClInclude Include="Inv.h" />
+    <ClInclude Include="InventoryItem.h" />
+    <ClInclude Include="ShoppingCart.h" />
     <ClInclude Include="User.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Inventory.txt" />
+    <Text Include="Users.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
