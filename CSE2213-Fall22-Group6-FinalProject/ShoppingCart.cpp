@@ -5,12 +5,12 @@
 #include "ShoppingCart.h"
 
 ShoppingCart::ShoppingCart(){
-    UserID = 0;
+    UserId = 0;
     vector<InventoryItem> Items;
 }
 
-ShoppingCart::ShoppingCart(UserID){
-    this->UserID = UserID;
+ShoppingCart::ShoppingCart(int UserID){
+    this->UserId = UserID;
     vector<InventoryItem> Items;
 }
 
@@ -19,21 +19,31 @@ ShoppingCart::~ShoppingCart(){
 }
 
 void ShoppingCart::setUserID(int id){
-    this->UserID = id;
+    this->UserId = id;
 }
 
 int ShoppingCart::getUserID() {
-    return UserID;
+    return UserId;
 }
 
-void ShoppingCart::additem(InventoryItem item, int quantity){
+void ShoppingCart::addItem(InventoryItem item, int quantity)
+{
+
 }
-void ShoppingCart::removeitem(string name){
+void ShoppingCart::removeItem(InventoryItem item, int quantity)
+{
+
 }
-void ShoppingCart::viewCart(){
+void ShoppingCart::viewCart()
+{
+
 }
-void ShoppingCart::clearCart(){
+void ShoppingCart::clearCart()
+{
+
 }
-void ShoppingCart::checkout(){
+void ShoppingCart::checkout()
+{
+
 }
 
