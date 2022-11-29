@@ -1,7 +1,7 @@
 #include "Order.h"
 
 Order::Order() {
-	orderNumber = 0;
+	orderNumber = -1; //Changed to default userID for not being logged in
 	userID = 0;
 	itemList = vector<InventoryItem>();
 	total = 0.00;
