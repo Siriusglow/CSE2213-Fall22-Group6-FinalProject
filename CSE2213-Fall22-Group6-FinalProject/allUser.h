@@ -114,4 +114,12 @@ public:
     int nextID() {        
         return userList.size();
     }
+
+    void addUser(User user) {
+        userList.push_back(user);
+    }
+
+    User populateUser(int UserId) {
+        return userList.at(UserId);
+    }
 };

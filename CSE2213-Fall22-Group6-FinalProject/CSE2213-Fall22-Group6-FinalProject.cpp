@@ -33,8 +33,10 @@ int main()             // The entirity of the main function currently is testing
                 cout << "Please input your password: ";
                 cin >> loginPassword;
                 cout << endl;
+              
+                int LoggedinID = allUser.login(loginUsername, loginPassword);
 
-                if (allUser.login(loginUsername, loginPassword) != -1) {
+                if (LoggedinID != -1) {
                     validLogIn = true;
                 }
                 else {
@@ -43,8 +45,11 @@ int main()             // The entirity of the main function currently is testing
 
                 if (validLogIn) {
                     cout << "Login sucessful" << endl << endl;
-                    // Something to now gather the information based off of the returned userID from earlier. This is how all of the user functions will be created. 
-                    cout << "Welcome back to the system" << endl;      // FIXME, maybe a variable to the user.
+                    // Something to now gather the information based off of the returned userID from earlier. This is how all of the user functions will be created.
+                    User currentUser = allUser.populateUser(LoggedinID);
+
+
+                    cout << "Welcome back to the system, " << currentUser.getName() << endl;      // FIXME, maybe a variable to the user.
                     while (MenuOption != 5) {
                         cout << "Please choose a menu option" << endl;
                         cout << "1. View and change user information" << endl;
@@ -69,29 +74,74 @@ int main()             // The entirity of the main function currently is testing
                                     cout << "Menu option: ";
                                     cin >> MenuOption;
                                     if (!cin.fail()) {
-                                        switch (MenuOption) {
-                                        case 1:
-                                            cout << "FIXME case 1 was chosen" << endl;      // Get rid of switch as it impides the declaration of the class allUsers
-                                            break;
-                                        case 2:
-                                            cout << "FIXME case 2 was called" << endl;
-                                            break;
-                                        case 3:
-                                            cout << "FIXME case 3 was called" << endl;
-                                            break;
-                                        case 4:
-                                            cout << "FIXME case 4 was called" << endl;
-                                            break;
-                                        case 5:
-                                            cout << "FIXME case 5 was called" << endl;
-                                            break;
-                                        case 6:
-                                            cout << "FIXME case 6 was called" << endl;
-                                            break;
-                                        case 7:
+                                        if (MenuOption == 1) {
+                                            // Nothing needs to go here, as having this input breaks out of the loop and takes you back to the previous menu.
+                                        }
+                                        else if (MenuOption == 2) {
+                                            cout << "Your current payment information: " << endl;
+                                            cout << "Credit card number: " << currentUser.getCreditCardNum() << endl;
+                                            cout << "Credit card expiration date: " << currentUser.getExpirationDate() << endl;
+                                            cout << "Credit card CVV: " << currentUser.getCVV() << endl;
+
+                                            string fixedCreditCardNum = "";
+                                            cout << "Please input the new credit card number: ";
+                                            getline(cin, fixedCreditCardNum);
+                                            currentUser.setCreditCardNum(fixedCreditCardNum);
+
+                                            string fixedExpirationDate = "";
+                                            cout << "Please input the new credit card expiration date: ";
+                                            getline(cin, fixedExpirationDate);
+                                            currentUser.setExpirationDate(fixedExpirationDate);
+
+                                            string fixedCVV = "";
+                                            cout << "Please input the new credit card CVV (3 numbers on the back of the card): ";
+                                            getline(cin, fixedCVV);
+                                            currentUser.setCVV(fixedCVV);
+                                        }
+                                        else if (MenuOption == 3) {
+                                            cout << "Your current shipping information: " << endl;
+                                            cout << "Address: " << currentUser.getAddress() << endl;
+
+                                            string fixedAddress = "";
+                                            cout << "Please input your new shipping address: ";
+                                            getline(cin, fixedAddress);
+                                            currentUser.setAddress(fixedAddress);
+                                        }
+                                        else if (MenuOption == 4) {
+                                            cout << "Your current contact information: " << endl;
+                                            cout << "Email: " << currentUser.getEmail() << endl;
+                                            cout << "Phone number: " << currentUser.getPhone() << endl;
+
+                                            string fixedEmail = "";
+                                            cout << "Please input your new email: ";
+                                            getline(cin, fixedEmail);
+                                            currentUser.setEmail(fixedEmail);
+
+                                            string fixedPhone = "";
+                                            cout << "Please input your new phone number: ";
+                                            getline(cin, fixedPhone);
+                                            currentUser.setPhone(fixedPhone);
+
+                                        }
+                                        else if (MenuOption == 5) {
+                                            cout << "Your Information: " << endl;
+                                            cout << "\tName: " << currentUser.getName() << endl;
+                                            cout << "\tAddress: " << currentUser.getAddress() << endl;
+                                            cout << "\tEmail: " << currentUser.getEmail() << endl;
+                                            cout << "\tPhone Number: " << currentUser.getPhone() << endl;
+                                            cout << "\tCredit Card Number: " << currentUser.getCreditCardNum() << endl;
+                                            cout << "\tCredit Card Expiration Date: " << currentUser.getExpirationDate() << endl;
+                                            cout << "\tCredit Card CVV Number: " << currentUser.getCVV() << endl;
+                                            cout << "\tUsername: " << currentUser.getUsername() << endl;
+                                            cout << "\tPassword: " << currentUser.getPassword() << endl;
+                                        }
+                                        else if (MenuOption == 6) {
+                                            cout << "FIXME case 6 was called" << endl;      // FIXME, need order class to be implimented.
+                                        }
+                                        else if (MenuOption == 7) {                         //FIXME, Michael said he can do.
                                             cout << "FIXME case 7 was called" << endl;
-                                            break;
-                                        default:
+                                        }
+                                        else{
                                             cout << "Your option is not valid. Please try again." << endl;
                                         }
                                     }
@@ -143,6 +193,7 @@ int main()             // The entirity of the main function currently is testing
                     cout << "FIXME, Add a user was chosen" << endl;
                     int UserId;
                     UserId = allUser.nextID();
+
                     string name = "";
                     cin.ignore();
                     cout << "Please type your full name. A hyphan can be used if you have multiple first names, (ie. Mary-Katherine Smith): ";
@@ -181,8 +232,9 @@ int main()             // The entirity of the main function currently is testing
                     cout << "Please create a password: ";
                     getline(cin, Password);
 
-                    // FIXME Add Stuff to create a user and add said user to the file here. Also Add Stuff to make this look nice. 
-
+                    User newUser(UserId, name, address, email, phone, CreditCardNum, ExpirationDate, CVV, Username, Password);
+                    allUser.addUser(newUser);
+                    // This piece of code does not add the new user to the file. That will be done upon closing.
             }
             else if (MenuOption == 3) {
                 cout << "Thank you for using the system. Have a nice day!" << endl;
