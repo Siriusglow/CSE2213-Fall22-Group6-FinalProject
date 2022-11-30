@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
@@ -9,7 +27,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001fbc4b-f9a1-46d4-a173-fe907e1924c9" name="Default Changelist" comment="" />
+    <list default="true" id="001fbc4b-f9a1-46d4-a173-fe907e1924c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE2213-Fall22-Group6-FinalProject/CSE2213-Fall22-Group6-FinalProject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CSE2213-Fall22-Group6-FinalProject/CSE2213-Fall22-Group6-FinalProject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE2213-Fall22-Group6-FinalProject/ShoppingCart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CSE2213-Fall22-Group6-FinalProject/ShoppingCart.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE2213-Fall22-Group6-FinalProject/ShoppingCart.h" beforeDir="false" afterPath="$PROJECT_DIR$/CSE2213-Fall22-Group6-FinalProject/ShoppingCart.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +59,17 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -54,16 +83,47 @@
       <updated>1667939854431</updated>
       <workItem from="1667939856232" duration="1005000" />
       <workItem from="1667950170604" duration="6536000" />
+      <workItem from="1669749528409" duration="2824000" />
+      <workItem from="1669767802801" duration="597000" />
+      <workItem from="1669772836466" duration="1310000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="63" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1667951011722">
+    <state x="223" y="63" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1669773542867">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="223" y="63" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1667951011722" />
+    <state x="223" y="63" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1669773542867" />
+    <state x="100" y="100" width="1336" height="616" key="DiffContextDialog" timestamp="1669701885378">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="100" y="100" width="1336" height="616" key="DiffContextDialog/0.0.1536.816@0.0.1536.816" timestamp="1669701885378" />
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1669767963823">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1669767963823" />
+    <state x="277" y="53" key="SettingsEditor" timestamp="1669773288639">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="277" y="53" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1669773288639" />
+    <state x="586" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1669749578148">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="586" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816@0.0.1536.816" timestamp="1669749578148" />
   </component>
 </project>

@@ -66,7 +66,7 @@ public:
 	{
 		cost = value;
 	}
-	int setCount(int value)
+	void setCount(int value)
 	{
 		count = value;
 	}

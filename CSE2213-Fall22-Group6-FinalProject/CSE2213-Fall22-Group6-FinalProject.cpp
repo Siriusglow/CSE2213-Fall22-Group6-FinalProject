@@ -4,7 +4,7 @@ using namespace std;
 #include "User.h"
 #include "Inv.h"
 #include "allUser.h"
-
+#include "ShoppingCart.h"
 
 
 int main()             // The entirity of the main function currently is testing. Class implimentation seems to work. 
@@ -14,6 +14,12 @@ int main()             // The entirity of the main function currently is testing
     int MenuOption = -1;
     allUsers allUser;
     allUser.fill();
+    Inventory inv;
+    inv.fill();
+    //This will be the Inventory list
+    vector<InventoryItem> itemList=inv.getInv();
+    //THIS IS A PLACEHOLDER FOR ACTUAL USER SHOPPING CART
+    ShoppingCart test=ShoppingCart(1);
 
     while (MenuOption != 3) {
         cout << "Please choose a menu option" << endl;
@@ -24,6 +30,7 @@ int main()             // The entirity of the main function currently is testing
         cin >> MenuOption;
         if (!cin.fail()) {
             if (MenuOption == 1) {
+
                 string loginUsername;
                 string loginPassword;
                 cout << "Please input your username: ";
@@ -56,7 +63,8 @@ int main()             // The entirity of the main function currently is testing
                         cout << "2. View shopping cart" << endl;
                         cout << "3. Add item to shopping cart" << endl;
                         cout << "4. Remove item to shopping cart" << endl;
-                        cout << "5. Logout" << endl;
+                        cout << "5. Checkout" << endl;
+                        cout << "6. Logout" << endl;
                         cout << "Menu option: ";
                         cin >> MenuOption; // Validate input FIXME
                         if (!cin.fail()) {
@@ -154,20 +162,43 @@ int main()             // The entirity of the main function currently is testing
                                 }
                             }
                             else if (MenuOption == 2) {
-                                cout << "FIXME Option 2 was chosen" << endl;
+                                test.viewCart();
+                                MenuOption = -1;
                             }
+                                
                             else if (MenuOption == 3) {
                                 cout << "Below are the items that we have for sale." << endl;
-                                Inventory inv1;                                    // FIXME, rename to something more informative.
-                                inv1.fill();
-                                inv1.display();
+
+                                inv.display();
                                 // Add stuff for adding an item from the inventory to be added to the the shopping cart
+                                int gamenum;
+                                cout << "Enter the number of the game you would like to add to your cart:";
+                                cin >> gamenum;
+                                cout << "Enter the number of copies you would like to add to your cart:";
+                                int quantity;
+                                cin >> quantity;
+                                test.addItem(itemList[gamenum], quantity);
+                                MenuOption = -1;
                             }
                             else if (MenuOption == 4) {
                                 cout << "FIXME Option 4 was chosen" << endl;
+                                test.viewCart();
+                                cout << "Enter the number of the cart item you want to remove from your cart:";
+                                int removenum;
+                                cin >> removenum;
+                                int quantity;
+                                cout << "Enter the number of copies you would like to remove from your cart:";
+                                cin >> quantity;
+                                vector<InventoryItem>removeCart = test.getCart();
+                                test.removeItem(removeCart[removenum], quantity);
+                                
+                                MenuOption = -1;
                             }
                             else if (MenuOption == 5) {
-                                cout << "FIXME Option 5 was chosen" << endl;
+                                vector<InventoryItem> ord;
+                                ord=test.checkout(itemList);
+                                inv.setInv(itemList);
+                                MenuOption = -1;
                             }
                             else {
                                 cout << "Your menu option was invalid. Please choose one of the menu options above." << endl;

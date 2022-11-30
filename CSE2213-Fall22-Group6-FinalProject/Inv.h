@@ -11,6 +11,12 @@ class Inventory
 private:
 	vector<InventoryItem> itemList;
 public:
+    vector<InventoryItem> getInv() {
+        return itemList;
+    }
+    void setInv(vector<InventoryItem> itemList) {
+        this->itemList = itemList;
+    }
 	void fill()
     {
         itemList.clear();
