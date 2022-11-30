@@ -17,9 +17,9 @@ int main()             // The entirity of the main function currently is testing
     Inventory inv;
     inv.fill();
     //This will be the Inventory list
-    vector<InventoryItem> itemList=inv.getInv();
+    vector<InventoryItem> itemList = inv.getInv();
     //THIS IS A PLACEHOLDER FOR ACTUAL USER SHOPPING CART
-    ShoppingCart test=ShoppingCart(1);
+    ShoppingCart test = ShoppingCart(1);
 
     while (MenuOption != 3) {
         cout << "Please choose a menu option" << endl;
@@ -40,7 +40,7 @@ int main()             // The entirity of the main function currently is testing
                 cout << "Please input your password: ";
                 cin >> loginPassword;
                 cout << endl;
-              
+
                 int LoggedinID = allUser.login(loginUsername, loginPassword);
 
                 if (LoggedinID != -1) {
@@ -48,6 +48,7 @@ int main()             // The entirity of the main function currently is testing
                 }
                 else {
                     validLogIn = false;
+                    cout << "Login Failed. Please try agian" << endl;
                 }
 
                 if (validLogIn) {
@@ -58,7 +59,7 @@ int main()             // The entirity of the main function currently is testing
 
 
                     cout << "Welcome back to the system, " << currentUser.getName() << endl;
-                    while (MenuOption != 5) {
+                    while (MenuOption != 6) {
                         cout << "Please choose a menu option" << endl;
                         cout << "1. View and change user information" << endl;
                         cout << "2. View shopping cart" << endl;
@@ -91,7 +92,7 @@ int main()             // The entirity of the main function currently is testing
                                             cout << "Credit card number: " << currentUser.getCreditCardNum() << endl;
                                             cout << "Credit card expiration date: " << currentUser.getExpirationDate() << endl;
                                             cout << "Credit card CVV: " << currentUser.getCVV() << endl << endl;
-                                            
+
                                             cin.ignore();
                                             string fixedCreditCardNum = "";
                                             cout << "Please input the new credit card number: ";
@@ -175,7 +176,7 @@ int main()             // The entirity of the main function currently is testing
                                                 cout << "Please choose a valid menu option." << endl;
                                             }
                                         }
-                                        else{
+                                        else {
                                             cout << "Your option is not valid. Please try again." << endl;
                                         }
                                     }
@@ -191,7 +192,7 @@ int main()             // The entirity of the main function currently is testing
                                 test.viewCart();
                                 MenuOption = -1;
                             }
-                                
+
                             else if (MenuOption == 3) {
                                 cout << "Below are the items that we have for sale." << endl;
 
@@ -217,14 +218,17 @@ int main()             // The entirity of the main function currently is testing
                                 cin >> quantity;
                                 vector<InventoryItem>removeCart = test.getCart();
                                 test.removeItem(removeCart[removenum], quantity);
-                                
+
                                 MenuOption = -1;
                             }
                             else if (MenuOption == 5) {
                                 vector<InventoryItem> ord;
-                                ord=test.checkout(itemList);
+                                ord = test.checkout(itemList);
                                 inv.setInv(itemList);
                                 MenuOption = -1;
+                            }
+                            else if (MenuOption == 6) {
+                                cout << endl << "Logout successful. Have a nice day!" << endl;
                             }
                             else {
                                 cout << "Your menu option was invalid. Please choose one of the menu options above." << endl;
@@ -242,9 +246,6 @@ int main()             // The entirity of the main function currently is testing
                             break;
                         }
                     }
-                }
-                else {
-                    cout << "Login Failed. Please try again." << endl;
                 }
             }
             else if (MenuOption == 2) {                                 // Add some form of input validation here. In progress to add a new user stuff?
@@ -269,7 +270,7 @@ int main()             // The entirity of the main function currently is testing
                     string phone = "";
                     cout << "Please input your phone number: ";
                     getline(cin, phone);
-                    
+
                     string CreditCardNum = "";
                     cout << "Please input your credit card number: ";
                     getline(cin, CreditCardNum);
@@ -293,22 +294,22 @@ int main()             // The entirity of the main function currently is testing
                     User newUser(UserId, name, address, email, phone, CreditCardNum, ExpirationDate, CVV, Username, Password);
                     allUser.addUser(newUser);
                     // This piece of code does not add the new user to the file. That will be done upon closing.
-                    
 
-            }
+
+                }
             else if (MenuOption == 3) {
-                cout << "Thank you for using the system. Have a nice day!" << endl;
-            }
+                    cout << "Thank you for using the system. Have a nice day!" << endl;
+                }
             else {
-                cout << "Your menu option was invalid. Please choose one of the menu options above." << endl;
+                    cout << "Your menu option was invalid. Please choose one of the menu options above." << endl;
+                }
             }
-        }
         else {
-            cout << "Your input is invalid. Please choose a number corresponding to one of the options above" << endl;
-            cin.clear();
-            cin.ignore(10000, '\n');
-            cout << endl;
-        }
+                cout << "Your input is invalid. Please choose a number corresponding to one of the options above" << endl;
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout << endl;
+            }
         cout << endl;
     }
 }
