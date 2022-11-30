@@ -13,41 +13,56 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Test Texts">
+      <UniqueIdentifier>{96b8ae6e-cf8e-422b-8168-de7ae54bbc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tables">
+      <UniqueIdentifier>{4d71ecf5-2579-42a6-a89a-d97902858064}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CSE2213-Fall22-Group6-FinalProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ShoppingCart.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="allUser.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="ShoppingCart.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Inv.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="allUser.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InventoryItem.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ShoppingCart.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Inv.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="test.txt">
+      <Filter>Test Texts</Filter>
+    </Text>
     <Text Include="Inventory.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Tables</Filter>
     </Text>
     <Text Include="Users.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Tables</Filter>
+    </Text>
+    <Text Include="testInv.txt">
+      <Filter>Test Texts</Filter>
+    </Text>
+    <Text Include="testUser.txt">
+      <Filter>Test Texts</Filter>
     </Text>
   </ItemGroup>
 </Project>

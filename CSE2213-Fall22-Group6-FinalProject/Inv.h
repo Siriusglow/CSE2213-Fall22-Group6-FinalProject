@@ -14,6 +14,21 @@ public:
     vector<InventoryItem> getInv() {
         return itemList;
     }
+    ~Inventory()
+    {
+        ofstream outFile;
+        outFile.open("Inventory.txt");
+        for (int i = 0; i < itemList.size(); i++)
+        {
+            outFile << itemList[i].getName() << '\t';
+            outFile << itemList[i].getDesc() << '\t';
+            outFile << itemList[i].getCost() << '\t';
+            outFile << itemList[i].getCount() << '\t';
+            outFile << itemList[i].getGenre() << '\t';
+            outFile << itemList[i].getPublisher() << '\t';
+            outFile << endl;
+        }
+    }
     void setInv(vector<InventoryItem> itemList) {
         this->itemList = itemList;
     }
@@ -22,10 +37,6 @@ public:
         itemList.clear();
         ifstream infile;
         infile.open("Inventory.txt");
-        if (infile.is_open())
-        {
-            cout << "Opened\n";
-        }
         string line;
 
         // Loops
@@ -38,7 +49,6 @@ public:
             int count;
             string genre;
             string publisher;
-            cout << "Loop 1";
             string delimiter = "\t";
 
             name = line.substr(0, line.find(delimiter));
