@@ -138,6 +138,26 @@ void ShoppingCart::clearCart()
 vector<InventoryItem> ShoppingCart::checkout(vector<InventoryItem> &itemList)
 {
     int num;
+    int counter=0;
+    if (Items.size() == 0) {
+        cout << "Cart is empty, couldn't checkout" << endl;
+        return Items;
+    }
+    for (int i = 0;i < Items.size();i++) {
+        for (int j = 0;j < itemList.size();j++) {
+            if (Items[i].getName() == itemList[j].getName()) {
+                if (Items[i].getCount() > itemList[j].getCount()) {
+                    cout << "Checkout was not successful, cart has been emptied" << endl;
+                    Items.clear();
+                    vector<InventoryItem> temp;
+                    return temp;
+                }
+             
+            }
+            
+        }
+    }
+
     for (int i = 0;i < Items.size();i++) {
         for (int j = 0;j < itemList.size();j++) {
             if (Items[i].getName() == itemList[j].getName()) {

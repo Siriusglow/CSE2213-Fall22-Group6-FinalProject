@@ -30,7 +30,6 @@ int main()             // The entirity of the main function currently is testing
         cin >> MenuOption;
         if (!cin.fail()) {
             if (MenuOption == 1) {
-
                 string loginUsername;
                 string loginPassword;
                 cout << "Please input your username: ";
