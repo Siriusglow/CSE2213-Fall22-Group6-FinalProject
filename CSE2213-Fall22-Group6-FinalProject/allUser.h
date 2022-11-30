@@ -122,4 +122,9 @@ public:
     User populateUser(int UserId) {
         return userList.at(UserId);
     }
+
+    void deleteUser(int UserId) {
+        userList.erase(userList.begin() + UserId);
+    }
+
 };
