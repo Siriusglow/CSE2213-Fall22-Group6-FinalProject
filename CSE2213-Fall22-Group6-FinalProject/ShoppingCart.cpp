@@ -116,6 +116,7 @@ void ShoppingCart::viewCart()
         }
 
         cout
+            << "Index number:" << setw(width) << i << endl
             << "Name        :" << setw(width) << Items[i].getName() << endl
             << "Description :" << setw(width) << desc << endl
             << "Cost        :" << setprecision(2) << setw(width) << Items[i].getCost() << endl

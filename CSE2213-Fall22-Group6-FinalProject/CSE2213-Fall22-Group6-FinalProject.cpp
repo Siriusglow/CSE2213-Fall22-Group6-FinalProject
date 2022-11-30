@@ -197,9 +197,14 @@ int main()             // The entirity of the main function currently is testing
 
                                 inv.display();
                                 // Add stuff for adding an item from the inventory to be added to the the shopping cart
-                                int gamenum;
-                                cout << "Enter the number of the game you would like to add to your cart:";
-                                cin >> gamenum;
+                                int gamenum=-1;
+                                cout << "Enter the index of the game you would like to add to your cart:";
+                                while (gamenum >= itemList.size() || gamenum < 0) {
+                                    cin >> gamenum;
+                                    if (gamenum >= itemList.size() || gamenum < 0) {
+                                        cout << "Index is either too large or negative. Try Again:";
+                                    }
+                                }
                                 cout << "Enter the number of copies you would like to add to your cart:";
                                 int quantity;
                                 cin >> quantity;
@@ -207,18 +212,29 @@ int main()             // The entirity of the main function currently is testing
                                 MenuOption = -1;
                             }
                             else if (MenuOption == 4) {
-                                cout << "FIXME Option 4 was chosen" << endl;
-                                test.viewCart();
-                                cout << "Enter the number of the cart item you want to remove from your cart:";
-                                int removenum;
-                                cin >> removenum;
-                                int quantity;
-                                cout << "Enter the number of copies you would like to remove from your cart:";
-                                cin >> quantity;
-                                vector<InventoryItem>removeCart = test.getCart();
-                                test.removeItem(removeCart[removenum], quantity);
-                                
-                                MenuOption = -1;
+                                if (test.getCart().size() == 0) {
+                                    cout << "Cart is empty, can't remove items yet! Add an item." << endl;
+                                    MenuOption = -1;
+                                    
+                                }
+                                else {
+                                    test.viewCart();
+                                    cout << "Enter the index of the cart item you want to remove from your cart:";
+                                    int removenum = -1;
+                                    while (removenum >= test.getCart().size() || removenum < 0) {
+                                        cin >> removenum;
+                                        if (removenum >= test.getCart().size() || removenum < 0) {
+                                            cout << "Index is either too large or negative. Try Again:";
+                                        }
+                                    }
+                                    int quantity;
+                                    cout << "Enter the number of copies you would like to remove from your cart:";
+                                    cin >> quantity;
+                                    vector<InventoryItem>removeCart = test.getCart();
+                                    test.removeItem(removeCart[removenum], quantity);
+
+                                    MenuOption = -1;
+                                }
                             }
                             else if (MenuOption == 5) {
                                 vector<InventoryItem> ord;
