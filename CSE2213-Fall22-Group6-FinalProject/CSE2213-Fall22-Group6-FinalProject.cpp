@@ -47,9 +47,10 @@ int main()             // The entirity of the main function currently is testing
                     cout << "Login sucessful" << endl << endl;
                     // Something to now gather the information based off of the returned userID from earlier. This is how all of the user functions will be created.
                     User currentUser = allUser.populateUser(LoggedinID);
+                    int DeleteValue = 0; // DeleteValue checks to see if if the account has been deleted. If so, It breaks out off the loop, causing the user to be automatically logged out. Resets upon login to not cause issues.
 
 
-                    cout << "Welcome back to the system, " << currentUser.getName() << endl;      // FIXME, maybe a variable to the user.
+                    cout << "Welcome back to the system, " << currentUser.getName() << endl;
                     while (MenuOption != 5) {
                         cout << "Please choose a menu option" << endl;
                         cout << "1. View and change user information" << endl;
@@ -78,11 +79,12 @@ int main()             // The entirity of the main function currently is testing
                                             // Nothing needs to go here, as having this input breaks out of the loop and takes you back to the previous menu.
                                         }
                                         else if (MenuOption == 2) {
-                                            cout << "Your current payment information: " << endl;
+                                            cout << endl << "Your current payment information: " << endl;
                                             cout << "Credit card number: " << currentUser.getCreditCardNum() << endl;
                                             cout << "Credit card expiration date: " << currentUser.getExpirationDate() << endl;
-                                            cout << "Credit card CVV: " << currentUser.getCVV() << endl;
-
+                                            cout << "Credit card CVV: " << currentUser.getCVV() << endl << endl;
+                                            
+                                            cin.ignore();
                                             string fixedCreditCardNum = "";
                                             cout << "Please input the new credit card number: ";
                                             getline(cin, fixedCreditCardNum);
@@ -99,19 +101,21 @@ int main()             // The entirity of the main function currently is testing
                                             currentUser.setCVV(fixedCVV);
                                         }
                                         else if (MenuOption == 3) {
-                                            cout << "Your current shipping information: " << endl;
-                                            cout << "Address: " << currentUser.getAddress() << endl;
+                                            cout << endl << "Your current shipping information: " << endl;
+                                            cout << "Address: " << currentUser.getAddress() << endl << endl;
 
+                                            cin.ignore();
                                             string fixedAddress = "";
                                             cout << "Please input your new shipping address: ";
                                             getline(cin, fixedAddress);
                                             currentUser.setAddress(fixedAddress);
                                         }
                                         else if (MenuOption == 4) {
-                                            cout << "Your current contact information: " << endl;
+                                            cout << endl << "Your current contact information: " << endl;
                                             cout << "Email: " << currentUser.getEmail() << endl;
-                                            cout << "Phone number: " << currentUser.getPhone() << endl;
+                                            cout << "Phone number: " << currentUser.getPhone() << endl << endl;
 
+                                            cin.ignore();
                                             string fixedEmail = "";
                                             cout << "Please input your new email: ";
                                             getline(cin, fixedEmail);
@@ -124,7 +128,7 @@ int main()             // The entirity of the main function currently is testing
 
                                         }
                                         else if (MenuOption == 5) {
-                                            cout << "Your Information: " << endl;
+                                            cout << endl << "Your Information: " << endl;
                                             cout << "\tName: " << currentUser.getName() << endl;
                                             cout << "\tAddress: " << currentUser.getAddress() << endl;
                                             cout << "\tEmail: " << currentUser.getEmail() << endl;
@@ -138,8 +142,30 @@ int main()             // The entirity of the main function currently is testing
                                         else if (MenuOption == 6) {
                                             cout << "FIXME case 6 was called" << endl;      // FIXME, need order class to be implimented.
                                         }
-                                        else if (MenuOption == 7) {                         //FIXME, Michael said he can do.
-                                            cout << "FIXME case 7 was called" << endl;
+                                        else if (MenuOption == 7) {
+                                            cout << "Are you sure you want to delete your account? Once you delete your account, you cannot recover your information" << endl;
+                                            cout << "1. Yes" << endl;
+                                            cout << "2. No" << endl;
+                                            cout << "Menu option: ";
+                                            try {
+                                                cin >> DeleteValue;
+                                            }
+                                            catch (...) {
+                                                cout << "Your menu option was invalid. Please try again" << endl;
+                                                cin.clear();
+                                                cin.ignore(10000, '\n');
+                                            }
+                                            if (DeleteValue == 1) {
+                                                allUser.deleteUser(LoggedinID);
+                                                cout << "Your account has been deleted." << endl;
+                                                break;
+                                            }
+                                            else if (DeleteValue == 2) {
+                                                cout << "You have chosen not to delete your account" << endl;
+                                            }
+                                            else {
+                                                cout << "Please choose a valid menu option." << endl;
+                                            }
                                         }
                                         else{
                                             cout << "Your option is not valid. Please try again." << endl;
@@ -181,21 +207,22 @@ int main()             // The entirity of the main function currently is testing
                             cin.ignore(10000, '\n');
                             cout << endl;
                         }
+                        if (DeleteValue == 1) {
+                            break;
+                        }
                     }
                 }
                 else {
                     cout << "Login Failed. Please try again." << endl;
                 }
             }
-            else if (MenuOption == 2) {                                 // Add some form of input validation here. In progress to add a new user stuff
+            else if (MenuOption == 2) {                                 // Add some form of input validation here. In progress to add a new user stuff?
 
-
-                    cout << "FIXME, Add a user was chosen" << endl;
                     int UserId;
                     UserId = allUser.nextID();
 
-                    string name = "";
                     cin.ignore();
+                    string name = "";
                     cout << "Please type your full name. A hyphan can be used if you have multiple first names, (ie. Mary-Katherine Smith): ";
                     getline(cin, name);
 
@@ -210,7 +237,7 @@ int main()             // The entirity of the main function currently is testing
 
                     string phone = "";
                     cout << "Please input your phone number: ";
-                    getline(cin, email);
+                    getline(cin, phone);
                     
                     string CreditCardNum = "";
                     cout << "Please input your credit card number: ";
@@ -235,6 +262,8 @@ int main()             // The entirity of the main function currently is testing
                     User newUser(UserId, name, address, email, phone, CreditCardNum, ExpirationDate, CVV, Username, Password);
                     allUser.addUser(newUser);
                     // This piece of code does not add the new user to the file. That will be done upon closing.
+                    
+
             }
             else if (MenuOption == 3) {
                 cout << "Thank you for using the system. Have a nice day!" << endl;
