@@ -26,8 +26,9 @@ User::User(int UserId, string name, string address, string email, string phone, 
 	this->Password = Password;
 }
 
+
 User::~User() {
-	cout << "FIXME Destructor Called" << endl;		// FIXME. Stub
+
 }
 
 void User::setName(string name) {

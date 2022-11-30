@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "ShoppingCart.h"
 using namespace std;
 
 class User
@@ -24,6 +25,7 @@ public:
 	~User();
 
 	// setters
+	int getID();
 	void setName(string name);
 	void setAddress(string address);
 	void setEmail(string email);
@@ -45,7 +47,5 @@ public:
 	string getUsername();
 	string getPassword();
 
-	// ADDED GETID
-	int getID();
 };
 

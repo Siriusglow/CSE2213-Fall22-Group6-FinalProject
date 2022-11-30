@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 #include "Inv.h"
+#include "algorithm"
+
 using namespace std;
 
 class ShoppingCart
@@ -25,6 +27,8 @@ public:
     //getter
     int getUserID();
 
+    vector<InventoryItem> getCart();
+
     // setter
     void setUserID(int id);
 
@@ -32,7 +36,7 @@ public:
     void removeItem(InventoryItem, int);
     void viewCart();
     void clearCart();
-    void checkout();
+    vector<InventoryItem> checkout(vector<InventoryItem>&);
 };
 
 
