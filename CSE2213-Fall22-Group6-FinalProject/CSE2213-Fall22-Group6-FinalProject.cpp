@@ -3,6 +3,7 @@
 using namespace std;
 #include "User.h"
 #include "Inv.h"
+#include "Order.h"
 #include "allUser.h"
 #include "ShoppingCart.h"
 
@@ -237,9 +238,21 @@ int main()             // The entirity of the main function currently is testing
                                 }
                             }
                             else if (MenuOption == 5) {
-                                vector<InventoryItem> ord;
-                                ord = test.checkout(itemList);
+                                vector<InventoryItem> itemsInOrder;
+                                itemsInOrder = test.checkout(itemList);
                                 inv.setInv(itemList);
+
+                                int orderNum = 1;
+                                string dt = "";
+                                string notesToAdd;
+
+
+                                cout << "The local date and time is: " << dt << endl << endl;
+                                cout << "Write any extra shipping or order notes here:";
+                                cin >> notesToAdd;
+
+                                Order finalOrder = Order(orderNum, LoggedinID, itemsInOrder, currentUser.getAddress(), dt, notesToAdd);
+
                                 MenuOption = -1;
                             }
                             else if (MenuOption == 6) {

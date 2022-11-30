@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Inventory.txt" />
+    <Text Include="Orders.txt" />
     <Text Include="test.txt" />
     <Text Include="testInv.txt" />
     <Text Include="testUser.txt" />

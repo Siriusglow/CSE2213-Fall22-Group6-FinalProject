@@ -1,3 +1,5 @@
+//James Was Here
+
 #include "Order.h"
 
 Order::Order() {
@@ -11,15 +13,15 @@ Order::Order() {
 	extraNotes = "";
 }
 
-Order::Order(int orderNumber, int userID, vector<InventoryItem> itemList, double total, string shippingAddress, string datePlaced, string extraNotes) {
+Order::Order(int orderNumber, int userID, vector<InventoryItem> itemList, string shippingAddress, string datePlaced, string extraNotes) {
 	this->orderNumber = orderNumber;
 	this->userID = userID;
 	this->itemList = itemList;
-	this->total = total;
 	this->itemCount = itemCount;
 	this->shippingAddress = shippingAddress;
 	this->datePlaced = datePlaced;
 	this->extraNotes = extraNotes;
+	calculateTotal();
 }
 
 Order::~Order() {

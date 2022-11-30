@@ -64,5 +64,8 @@
     <Text Include="testUser.txt">
       <Filter>Test Texts</Filter>
     </Text>
+    <Text Include="Orders.txt">
+      <Filter>Tables</Filter>
+    </Text>
   </ItemGroup>
 </Project>

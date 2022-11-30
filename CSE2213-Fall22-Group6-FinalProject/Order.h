@@ -1,3 +1,5 @@
+//James Was Here
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -19,7 +21,7 @@ private:
 	string extraNotes;
 public:
 	Order();
-	Order(int orderNumber, int userID, vector<InventoryItem> itemList, double total, string shippingAddress, string datePlaced, string extraNotes);
+	Order(int orderNumber, int userID, vector<InventoryItem> itemList, string shippingAddress, string datePlaced, string extraNotes);
 	~Order();
 
 	void setUserID(int id);
