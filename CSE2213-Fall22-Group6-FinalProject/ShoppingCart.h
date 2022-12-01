@@ -22,7 +22,7 @@ public:
     // Constructors and Destructors
     ShoppingCart();
     ShoppingCart(int UserId);
-    ~ShoppingCart();
+
 
     //getter
     int getUserID();
