@@ -152,9 +152,8 @@ int main()             // The entirity of the main function currently is testing
                                             cout << "\tPassword: " << currentUser.getPassword() << endl;
                                         }
                                         else if (MenuOption == 6) {
-                                            vector<Order> orderList;
                                             ifstream infile;
-                                            infile.open("testOrder.txt");
+                                            infile.open("Orders.txt");
                                             string line;
                                             int numOfOrders = 0;
 
@@ -294,9 +293,21 @@ int main()             // The entirity of the main function currently is testing
                                 inv.setInv(itemList);
                                 if (itemsInOrder.size() != 0)
                                 {
-                                    int orderNum = 1;
+                                    int orderNum = 0;
+
+                                    ifstream infile;
+                                    infile.open("Orders.txt");
+                                    string line;
+                                    int numOfOrders = 0;
+                                    while (getline(infile, line))
+                                    {
+                                        numOfOrders++;
+                                    }
+
+                                    orderNum += numOfOrders + 1;
+
                                     string dt = "";
-                                    string notesToAdd;
+                                    string notesToAdd = "";
 
                                     time_t value = time(NULL);
                                     char buff[26];
@@ -304,13 +315,17 @@ int main()             // The entirity of the main function currently is testing
                                     dt = buff;
                                     dt.erase(std::remove(dt.begin(), dt.end(), '\n'), dt.cend());
                                     dt.erase(std::remove(dt.begin(), dt.end(), '\t'), dt.cend());
+                                    Order finalOrder = Order(orderNum, LoggedinID, itemsInOrder, currentUser.getAddress(), dt, notesToAdd);
 
+                                    cout << "Your order number is: " << finalOrder.getOrderNum() << endl;
+                                    cout << "Your total is: " << finalOrder.getTotal() << endl;
                                     cout << "The local date and time is: " << dt;
                                     cout << endl << "Write any extra shipping or order notes here: ";
                                     cin.ignore();
                                     getline(cin, notesToAdd);
 
-                                    Order finalOrder = Order(orderNum, LoggedinID, itemsInOrder, currentUser.getAddress(), dt, notesToAdd);
+                                    finalOrder.addNote(notesToAdd);
+
 
                                 }
                                 MenuOption = -1;

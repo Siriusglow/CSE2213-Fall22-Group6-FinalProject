@@ -1,1 +1,6 @@
-1	1	testAddress	7.99	Wed Nov 30 17:53:34 2022	Bugs are cool	No Man's Sky-59.99-4
+1	1	testAddress	199.99	Wed Nov 30 19:01:45 2022	Bugs are cool	No Man's Sky-59.99-4|Super Mario 64-29.99-2
+2	1	testAddress	299.94	Wed Nov 30 19:01:45 2022	Bugs are cool	No Man's Sky-59.99-4|Super Mario 64-29.99-2
+3	1	testAddress	29.97	Wed Nov 30 19:04:42 2022	Buggy	Don't Starve-9.99-3
+4	1	testAddress	29.99	Wed Nov 30 19:15:14 2022	Fourth Order	Super Mario 64-29.99-1
+5	1	testAddress	19.98	Wed Nov 30 19:21:41 2022	n/a	Don't Starve-9.99-2
+6	1	testAddress	29.99	Wed Nov 30 19:23:24 2022	nope	Banjo-Kazooie-29.99-1

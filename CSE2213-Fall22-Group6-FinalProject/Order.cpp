@@ -21,8 +21,7 @@ Order::Order(int orderNumber, int userID, vector<InventoryItem> itemList, string
 }
 
 Order::~Order() {
-	ofstream outFile;
-	outFile.open("testOrder.txt");
+	ofstream outFile("Orders.txt", std::ios_base::app);;
 	outFile << "\n";
 	outFile << orderNumber << '\t';
 	outFile << userID << '\t';
@@ -41,6 +40,8 @@ Order::~Order() {
 		outFile << itemList[i].getCost() << '-';
 		outFile << itemList[i].getCount();
 	}
+
+	outFile.close();
 }
 
 void Order::setUserID(int id) {
@@ -85,5 +86,5 @@ void Order::addItem(InventoryItem item) {
 }
 
 void Order::addNote(string note) {
-	this->extraNotes += " - " + note;
+	this->extraNotes += note;
 }

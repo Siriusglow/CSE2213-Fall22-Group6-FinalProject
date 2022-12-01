@@ -28,6 +28,7 @@ public:
             outFile << itemList[i].getPublisher() << '\t';
             outFile << endl;
         }
+        outFile.close();
     }
     void setInv(vector<InventoryItem> itemList) {
         this->itemList = itemList;
