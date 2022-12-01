@@ -14,10 +14,7 @@ ShoppingCart::ShoppingCart(int UserID){
     this->UserId = UserID;
 }
 
-// LET ME KNOW WHEN YOU FINISH THE REST OF THIS SO I CAN MAKE THIS WORK
-ShoppingCart::~ShoppingCart(){
-    cout<<"Shopping Cart Destructor Called"<<endl;
-}
+
 
 
 // PROBABLY SHOULDN'T CHANGE
