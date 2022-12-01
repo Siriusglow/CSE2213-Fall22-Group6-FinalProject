@@ -256,6 +256,7 @@ int main()             // The entirity of the main function currently is testing
                                 MenuOption = -1;
                             }
                             else if (MenuOption == 6) {
+                                allUser.syncAllUser(currentUser);                                                   // if something goes wrong, this is it.
                                 cout << endl << "Logout successful. Have a nice day!" << endl;
                             }
                             else {
