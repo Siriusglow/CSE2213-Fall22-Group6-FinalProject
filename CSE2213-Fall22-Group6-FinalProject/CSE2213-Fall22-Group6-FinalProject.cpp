@@ -23,7 +23,7 @@ int main()             // The entirity of the main function currently is testing
     //This will be the Inventory list
     vector<InventoryItem> itemList = inv.getInv();
     //THIS IS A PLACEHOLDER FOR ACTUAL USER SHOPPING CART
-    ShoppingCart test = ShoppingCart(1);
+    
 
     while (MenuOption != 3) {
         cout << "Please choose a menu option" << endl;
@@ -55,6 +55,7 @@ int main()             // The entirity of the main function currently is testing
                 }
 
                 if (validLogIn) {
+                    ShoppingCart test = ShoppingCart();
                     cout << "Login sucessful" << endl << endl;
                     // Something to now gather the information based off of the returned userID from earlier. This is how all of the user functions will be created.
                     User currentUser = allUser.populateUser(LoggedinID);
