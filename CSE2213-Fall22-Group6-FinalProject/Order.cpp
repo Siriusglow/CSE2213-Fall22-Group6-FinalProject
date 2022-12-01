@@ -1,5 +1,3 @@
-//James Was Here
-
 #include "Order.h"
 
 Order::Order() {
@@ -7,7 +5,6 @@ Order::Order() {
 	userID = 0;
 	itemList = vector<InventoryItem>();
 	total = 0.00;
-	itemCount = 0;
 	shippingAddress = "";
 	datePlaced = "";
 	extraNotes = "";
@@ -17,7 +14,6 @@ Order::Order(int orderNumber, int userID, vector<InventoryItem> itemList, string
 	this->orderNumber = orderNumber;
 	this->userID = userID;
 	this->itemList = itemList;
-	this->itemCount = itemCount;
 	this->shippingAddress = shippingAddress;
 	this->datePlaced = datePlaced;
 	this->extraNotes = extraNotes;
@@ -25,7 +21,25 @@ Order::Order(int orderNumber, int userID, vector<InventoryItem> itemList, string
 }
 
 Order::~Order() {
-	cout << "FIXME Destructor Called" << endl;
+	ofstream outFile;
+	outFile.open("testOrder.txt");
+	outFile << "\n";
+	outFile << orderNumber << '\t';
+	outFile << userID << '\t';
+	outFile << shippingAddress << '\t';
+	outFile << datePlaced << '\t';
+	outFile << extraNotes << '\t';
+
+	for (int i = 0; i < itemList.size(); i++)
+	{
+		if (i != 0)
+		{
+			outFile << "|";
+		}
+		outFile << itemList[i].getName() << '-';
+		outFile << itemList[i].getCost() << '-';
+		outFile << itemList[i].getCount();
+	}
 }
 
 void Order::setUserID(int id) {
@@ -67,7 +81,6 @@ void Order::calculateTotal() {
 
 void Order::addItem(InventoryItem item) {
 	itemList.push_back(item);
-	itemCount++;
 }
 
 void Order::addNote(string note) {

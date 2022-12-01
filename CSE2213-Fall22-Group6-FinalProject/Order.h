@@ -1,5 +1,3 @@
-//James Was Here
-
 #pragma once
 #include <iostream>
 #include <string>
@@ -15,7 +13,6 @@ private:
 	int userID;
 	vector<InventoryItem> itemList;
 	double total;
-	int itemCount;
 	string shippingAddress;
 	string datePlaced;
 	string extraNotes;

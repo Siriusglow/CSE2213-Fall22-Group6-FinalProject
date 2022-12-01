@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <time.h>
+#include <stdio.h>
 using namespace std;
 #include "User.h"
 #include "Inv.h"
@@ -241,18 +244,26 @@ int main()             // The entirity of the main function currently is testing
                                 vector<InventoryItem> itemsInOrder;
                                 itemsInOrder = test.checkout(itemList);
                                 inv.setInv(itemList);
+                                if (itemsInOrder.size() != 0)
+                                {
+                                    int orderNum = 1;
+                                    string dt = "";
+                                    string notesToAdd;
 
-                                int orderNum = 1;
-                                string dt = "";
-                                string notesToAdd;
+                                    time_t value = time(NULL);
+                                    char buff[26];
+                                    ctime_s(buff, sizeof buff, &value);
+                                    dt = buff;
+                                    dt.erase(std::remove(dt.begin(), dt.end(), '\n'), dt.cend());
 
+                                    cout << "The local date and time is: " << dt;
+                                    cout << endl << "Write any extra shipping or order notes here: ";
+                                    cin.ignore();
+                                    getline(cin, notesToAdd);
 
-                                cout << "The local date and time is: " << dt << endl << endl;
-                                cout << "Write any extra shipping or order notes here:";
-                                cin >> notesToAdd;
+                                    Order finalOrder = Order(orderNum, LoggedinID, itemsInOrder, currentUser.getAddress(), dt, notesToAdd);
 
-                                Order finalOrder = Order(orderNum, LoggedinID, itemsInOrder, currentUser.getAddress(), dt, notesToAdd);
-
+                                }
                                 MenuOption = -1;
                             }
                             else if (MenuOption == 6) {
