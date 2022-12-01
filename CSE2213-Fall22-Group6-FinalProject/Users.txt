@@ -1,2 +1,4 @@
-0	Michael Hedrick	Yo mama's house	temp@gmail.com	800-588-2300	2	12/21	777	Hylian	password	
-1	testName	testAddress	testEmail	testPhone	testCC	testEXP	testCVV	testUser	testPass	
+0	0	Michael Hedrick	Yo mama's house	temp@gmail.com	800-588-2300	2	12/21	777	Hylian	password	
+1	1	testName	testAddress	testEmail	testPhone	testCC	testEXP	testCVV	testUser	testPass	
+2	2	Mario Plump	123 Mushroom Drive	mario@mushroom.org	The princess	1111-1111-1111-1111	22/22	333	GavTest	password	
+3	4	b	1234	1234	1234	1234	1234	1324	b	b	

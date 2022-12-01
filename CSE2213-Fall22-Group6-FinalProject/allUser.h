@@ -24,6 +24,7 @@ public:
 		while (getline(infile, line))
 		{
 			// Initial Variables
+			int UserIndex;
 			int UserId;
 			string name;
 			string address;
@@ -36,7 +37,8 @@ public:
 			string Password;
 
 			string delimiter = "\t";
-
+			UserIndex = stoi(line.substr(0, line.find(delimiter)));
+			line.erase(0, line.find(delimiter) + delimiter.length());
 			UserId = stoi(line.substr(0, line.find(delimiter)));
 			line.erase(0, line.find(delimiter) + delimiter.length());
 			name = line.substr(0, line.find(delimiter));
@@ -58,7 +60,7 @@ public:
 			Password = line.substr(0, line.find(delimiter));
 
 			// Makes a temporary item and then pushes it to the vector
-			User temp(UserId, name, address, email, phone, CreditCardNum, ExpirationDate, CVV, Username, Password);
+			User temp(UserIndex, UserId, name, address, email, phone, CreditCardNum, ExpirationDate, CVV, Username, Password);
 			userList.push_back(temp);
 		}
 
@@ -102,6 +104,7 @@ public:
 		outFile.open("Users.txt");
 		for (int i = 0; i < userList.size(); i++)
 		{
+			outFile << i << '\t';
 			outFile << userList[i].getID() << '\t';
 			outFile << userList[i].getName() << '\t';
 			outFile << userList[i].getAddress() << '\t';
@@ -123,7 +126,7 @@ public:
 		for (unsigned int i = 0; i < userList.size(); i++)
 		{
 			if (userList[i].getUsername() == username && userList[i].getPassword() == password)
-				return userList[i].getID();
+				return userList[i].getUserIndex();
 		}
 		return -1;
 	}
@@ -133,20 +136,50 @@ public:
 		return userList.size();
 	}
 
+	int nextUserIndex() {
+		if (userList.size() > 0) {
+			return userList.at(userList.size() - 1).getUserIndex() + 1;
+		}
+		else {
+			return 0;
+		}
+	}
+
 	void addUser(User user) {
 		userList.push_back(user);
 	}
 
-	User populateUser(int UserId) {
-		return userList.at(UserId);
+	User populateUser(int UserIndex) {
+		return userList.at(UserIndex);
 	}
 
-	void deleteUser(int UserId) {
-		userList.erase(userList.begin() + UserId);
+	void deleteUser(int UserIndex) {
+		userList.erase(userList.begin() + UserIndex);
 	}
 
 	void syncAllUser(User user) {
-		userList.at(user.getID()) = user;
+		userList.at(user.getUserIndex()) = user;	
+	}
+
+	void writeout() {							// does the same things as the deconstructor, but doesn't deassociate the class instance for the delete function.
+		ofstream outFile;
+		outFile.open("Users.txt");
+		for (int i = 0; i < userList.size(); i++)
+		{
+			outFile << i << '\t';
+			outFile << userList[i].getID() << '\t';
+			outFile << userList[i].getName() << '\t';
+			outFile << userList[i].getAddress() << '\t';
+			outFile << userList[i].getEmail() << '\t';
+			outFile << userList[i].getPhone() << '\t';
+			outFile << userList[i].getCreditCardNum() << '\t';
+			outFile << userList[i].getExpirationDate() << '\t';
+			outFile << userList[i].getCVV() << '\t';
+			outFile << userList[i].getUsername() << '\t';
+			outFile << userList[i].getPassword() << '\t';
+
+			outFile << endl;
+		}
 	}
 
 };

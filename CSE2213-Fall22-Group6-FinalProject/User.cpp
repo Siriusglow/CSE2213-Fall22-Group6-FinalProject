@@ -1,6 +1,7 @@
 #include "User.h"
 
 User::User() {
+	Userindex = 0;
 	UserId = 0;
 	name = "";
 	address = "";
@@ -13,7 +14,8 @@ User::User() {
 	Password = "";
 }
 
-User::User(int UserId, string name, string address, string email, string phone, string CreditCardNum, string ExpirationDate, string CVV, string Username, string Password) {	// FIXME, should we keep UserId?
+User::User(int Userindex, int UserId, string name, string address, string email, string phone, string CreditCardNum, string ExpirationDate, string CVV, string Username, string Password) {	// FIXME, should we keep UserId?
+	this->Userindex = Userindex;
 	this->UserId = UserId;
 	this->name = name;
 	this->address = address;
@@ -26,9 +28,8 @@ User::User(int UserId, string name, string address, string email, string phone, 
 	this->Password = Password;
 }
 
-
-User::~User() {
-
+void User::setUserIndex(int Userindex) {
+	this->Userindex = Userindex;
 }
 
 void User::setName(string name) {
@@ -107,3 +108,6 @@ int User::getID() {
 	return UserId;
 }
 
+int User::getUserIndex() {
+	return Userindex;
+}

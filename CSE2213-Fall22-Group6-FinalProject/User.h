@@ -7,6 +7,7 @@ using namespace std;
 class User
 {
 private:
+	int Userindex;
 	int UserId;
 	string name;
 	string address;
@@ -21,11 +22,10 @@ private:
 public:
 	// Constructors and Destructors
 	User();
-	User(int UserId, string name, string address, string email, string phone, string CreditCardNum, string ExpirationDate, string CVV, string Username, string Password);
-	~User();
+	User(int Userindex, int UserId, string name, string address, string email, string phone, string CreditCardNum, string ExpirationDate, string CVV, string Username, string Password);
 
 	// setters
-	int getID();
+	void setUserIndex(int Userindex);
 	void setName(string name);
 	void setAddress(string address);
 	void setEmail(string email);
@@ -37,6 +37,8 @@ public:
 	void setPassword(string Password);
 
 	//getters
+	int getUserIndex();
+	int getID();
 	string getName();
 	string getAddress();
 	string getEmail();
