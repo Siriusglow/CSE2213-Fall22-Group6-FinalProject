@@ -50,7 +50,7 @@ int main()             // The entirity of the main function currently is testing
                 }
                 else {
                     validLogIn = false;
-                    cout << "Login Failed. Please try agian" << endl;
+                    cout << "Login Failed. Please try again" << endl;
                 }
 
                 if (validLogIn) {
