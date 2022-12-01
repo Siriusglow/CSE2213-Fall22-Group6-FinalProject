@@ -145,4 +145,8 @@ public:
 		userList.erase(userList.begin() + UserId);
 	}
 
+	void syncAllUser(User user) {
+		userList.at(user.getID()) = user;
+	}
+
 };
