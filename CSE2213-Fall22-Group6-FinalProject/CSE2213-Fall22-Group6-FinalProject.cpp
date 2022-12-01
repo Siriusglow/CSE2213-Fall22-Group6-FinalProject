@@ -45,7 +45,7 @@ int main()             // The entirity of the main function currently is testing
                 cout << endl;
 
                 int LoggedinID = allUser.login(loginUsername, loginPassword);
-
+                cout << LoggedinID;
                 if (LoggedinID != -1) {
                     validLogIn = true;
                 }
@@ -182,7 +182,7 @@ int main()             // The entirity of the main function currently is testing
                                                 readDate = line.substr(0, line.find(delimiter));
                                                 line.erase(0, line.find(delimiter) + delimiter.length());
                                                 readNotes = line.substr(0, line.find(delimiter));
-                                                
+
                                                 if (readUserID == LoggedinID) {
                                                     cout
                                                         << "Order Number:" << readOrderID << endl
@@ -218,6 +218,8 @@ int main()             // The entirity of the main function currently is testing
                                             if (DeleteValue == 1) {
                                                 allUser.deleteUser(LoggedinID);
                                                 cout << "Your account has been deleted." << endl;
+                                                allUser.writeout();
+                                                allUser.fill();
                                                 break;
                                             }
                                             else if (DeleteValue == 2) {
@@ -249,7 +251,7 @@ int main()             // The entirity of the main function currently is testing
 
                                 inv.display();
                                 // Add stuff for adding an item from the inventory to be added to the the shopping cart
-                                int gamenum=-1;
+                                int gamenum = -1;
                                 cout << "Enter the index of the game you would like to add to your cart:";
                                 while (gamenum >= itemList.size() || gamenum < 0) {
                                     cin >> gamenum;
@@ -267,7 +269,7 @@ int main()             // The entirity of the main function currently is testing
                                 if (test.getCart().size() == 0) {
                                     cout << "Cart is empty, can't remove items yet! Add an item." << endl;
                                     MenuOption = -1;
-                                    
+
                                 }
                                 else {
                                     test.viewCart();
@@ -332,7 +334,7 @@ int main()             // The entirity of the main function currently is testing
                                 MenuOption = -1;
                             }
                             else if (MenuOption == 6) {
-                                allUser.syncAllUser(currentUser);                                                   // if something goes wrong, this is it.
+                                allUser.syncAllUser(currentUser);                                                   
                                 cout << endl << "Logout successful. Have a nice day!" << endl;
                             }
                             else {
@@ -355,60 +357,63 @@ int main()             // The entirity of the main function currently is testing
             }
             else if (MenuOption == 2) {                                 // Add some form of input validation here. In progress to add a new user stuff?
 
-                    int UserId;
-                    UserId = allUser.nextID();
+                int userIndex;
+                userIndex = allUser.nextUserIndex(); // FIXME
 
-                    cin.ignore();
-                    string name = "";
-                    cout << "Please type your full name. A hyphan can be used if you have multiple first names, (ie. Mary-Katherine Smith): ";
-                    getline(cin, name);
+                int UserId;
+                UserId = allUser.nextID();
 
-                    string address = "";
-                    cout << "Please type your address. Please include your full address, including city, state, and zip code. Please use an address that can be shipped to." << endl;
-                    cout << "Address: ";
-                    getline(cin, address);
+                cin.ignore();
+                string name = "";
+                cout << "Please type your full name. A hyphan can be used if you have multiple first names, (ie. Mary-Katherine Smith): ";
+                getline(cin, name);
 
-                    string email = "";
-                    cout << "Plase input your email: ";
-                    getline(cin, email);
+                string address = "";
+                cout << "Please type your address. Please include your full address, including city, state, and zip code. Please use an address that can be shipped to." << endl;
+                cout << "Address: ";
+                getline(cin, address);
 
-                    string phone = "";
-                    cout << "Please input your phone number: ";
-                    getline(cin, phone);
+                string email = "";
+                cout << "Plase input your email: ";
+                getline(cin, email);
 
-                    string CreditCardNum = "";
-                    cout << "Please input your credit card number: ";
-                    getline(cin, CreditCardNum);
+                string phone = "";
+                cout << "Please input your phone number: ";
+                getline(cin, phone);
 
-                    string ExpirationDate = "";
-                    cout << "Please input the expiration date of your credit card: ";
-                    getline(cin, ExpirationDate);
+                string CreditCardNum = "";
+                cout << "Please input your credit card number: ";
+                getline(cin, CreditCardNum);
 
-                    string CVV = "";
-                    cout << "Please input the CVV of your credit card (the 3 numbers on the back of the card): ";
-                    getline(cin, CVV);
+                string ExpirationDate = "";
+                cout << "Please input the expiration date of your credit card: ";
+                getline(cin, ExpirationDate);
 
-                    string Username = "";
-                    cout << "Please type in a username for you to use: ";
-                    getline(cin, Username);
+                string CVV = "";
+                cout << "Please input the CVV of your credit card (the 3 numbers on the back of the card): ";
+                getline(cin, CVV);
 
-                    string Password = "";
-                    cout << "Please create a password: ";
-                    getline(cin, Password);
+                string Username = "";
+                cout << "Please type in a username for you to use: ";
+                getline(cin, Username);
 
-                    User newUser(UserId, name, address, email, phone, CreditCardNum, ExpirationDate, CVV, Username, Password);
-                    allUser.addUser(newUser);
-                    // This piece of code does not add the new user to the file. That will be done upon closing.
+                string Password = "";
+                cout << "Please create a password: ";
+                getline(cin, Password);
+
+                User newUser(userIndex, UserId, name, address, email, phone, CreditCardNum, ExpirationDate, CVV, Username, Password);
+                allUser.addUser(newUser);
+                // This piece of code does not add the new user to the file. That will be done upon closing.
 
 
-                }
-            else if (MenuOption == 3) {
-                    cout << "Thank you for using the system. Have a nice day!" << endl;
-                }
-            else {
-                    cout << "Your menu option was invalid. Please choose one of the menu options above." << endl;
-                }
             }
+            else if (MenuOption == 3) {
+                cout << "Thank you for using the system. Have a nice day!" << endl;
+            }
+            else {
+                cout << "Your menu option was invalid. Please choose one of the menu options above." << endl;
+            }
+        }
         else {
                 cout << "Your input is invalid. Please choose a number corresponding to one of the options above" << endl;
                 cin.clear();
