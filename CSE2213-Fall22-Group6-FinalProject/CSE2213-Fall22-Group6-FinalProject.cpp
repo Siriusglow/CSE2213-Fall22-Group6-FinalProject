@@ -163,7 +163,7 @@ int main()             // The entirity of the main function currently is testing
                                             {
                                                 // Initial Variables
                                                 int readOrderID = -1;
-                                                int readUserID = 1;
+                                                int readUserID = -1;
                                                 string readUserAddress;
                                                 double readTotal = 0.00;
                                                 string readDate;
@@ -182,7 +182,7 @@ int main()             // The entirity of the main function currently is testing
                                                 line.erase(0, line.find(delimiter) + delimiter.length());
                                                 readNotes = line.substr(0, line.find(delimiter));
 
-                                                if (readUserID == LoggedinID) {
+                                                if (readUserID == currentUser.getID()) {
                                                     cout
                                                         << "Order Number:" << readOrderID << endl
                                                         << "Address     :" << readUserAddress << endl
@@ -317,7 +317,7 @@ int main()             // The entirity of the main function currently is testing
                                     dt = buff;
                                     dt.erase(std::remove(dt.begin(), dt.end(), '\n'), dt.cend());
                                     dt.erase(std::remove(dt.begin(), dt.end(), '\t'), dt.cend());
-                                    Order finalOrder = Order(orderNum, LoggedinID, itemsInOrder, currentUser.getAddress(), dt, notesToAdd);
+                                    Order finalOrder = Order(orderNum, currentUser.getID(), itemsInOrder, currentUser.getAddress(), dt, notesToAdd);
 
                                     cout << "Your order number is: " << finalOrder.getOrderNum() << endl;
                                     cout << "Your total is: " << finalOrder.getTotal() << endl;
