@@ -22,7 +22,6 @@ int main()             // The entirity of the main function currently is testing
     inv.fill();
     //This will be the Inventory list
     vector<InventoryItem> itemList = inv.getInv();
-    //THIS IS A PLACEHOLDER FOR ACTUAL USER SHOPPING CART
     
 
     while (MenuOption != 3) {
@@ -71,7 +70,7 @@ int main()             // The entirity of the main function currently is testing
                         cout << "5. Checkout" << endl;
                         cout << "6. Logout" << endl;
                         cout << "Menu option: ";
-                        cin >> MenuOption; // Validate input FIXME
+                        cin >> MenuOption; 
                         if (!cin.fail()) {
                             if (MenuOption == 1) {
                                 MenuOption = -1;
