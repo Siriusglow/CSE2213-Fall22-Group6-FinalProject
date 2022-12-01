@@ -30,6 +30,9 @@
     <ClCompile Include="User.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Order.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Order.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -66,6 +72,9 @@
     </Text>
     <Text Include="Orders.txt">
       <Filter>Tables</Filter>
+    </Text>
+    <Text Include="testOrder.txt">
+      <Filter>Test Texts</Filter>
     </Text>
   </ItemGroup>
 </Project>

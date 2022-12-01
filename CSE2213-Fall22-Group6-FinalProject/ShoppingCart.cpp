@@ -178,7 +178,7 @@ vector<InventoryItem> ShoppingCart::checkout(vector<InventoryItem> &itemList)
     vector<InventoryItem> temp = Items;
     Items.clear();
     
-    cout << "Checkout was successful!" << endl;
+    cout << "Checking out..." << endl;
     return temp;
 }
 

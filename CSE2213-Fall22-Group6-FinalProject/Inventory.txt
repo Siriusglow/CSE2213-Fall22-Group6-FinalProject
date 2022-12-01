@@ -2,4 +2,4 @@ Super Smash Brothers Ultimate	Party fighting game where the roster is the larges
 Super Mario 64	A game that paved the way for modern 3d titles. Discover the castle's secrets as you try to figure out what happened to Peach's castle.	29.99	3	Platformer	Nintendo	
 Banjo-Kazooie	"A classic collectathon starring the titular Banjo and Kazooie. Collect all the Jiggies, Jinjos, Notes, and more in this fun filled adventure as you try to save your sister from the evil witch Gruntilda."	29.99	3	Platformer	Nintendo	
 No Man's Sky	"Explore an endless universe uncovering the secrets of the stars. Take down space pirates or research animals. With limitless possibilities, anyone is sure to find something they enjoy."	59.99	45	Adventure	Hello Games	
-Don't Starve	"During an experiment, Maxwell is transported to a supernatural land. Try to survive the night, and most importantly, don't starve."	9.99	29	Survival	Klei Entertainment	
+Don't Starve	"During an experiment, Maxwell is transported to a supernatural land. Try to survive the night, and most importantly, don't starve."	9.99	26	Survival	Klei Entertainment	

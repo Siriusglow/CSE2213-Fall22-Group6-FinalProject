@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CSE2213-Fall22-Group6-FinalProject.cpp" />
+    <ClCompile Include="Order.cpp" />
     <ClCompile Include="ShoppingCart.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
@@ -135,6 +136,7 @@
     <ClInclude Include="allUser.h" />
     <ClInclude Include="Inv.h" />
     <ClInclude Include="InventoryItem.h" />
+    <ClInclude Include="Order.h" />
     <ClInclude Include="ShoppingCart.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
@@ -143,6 +145,7 @@
     <Text Include="Orders.txt" />
     <Text Include="test.txt" />
     <Text Include="testInv.txt" />
+    <Text Include="testOrder.txt" />
     <Text Include="testUser.txt" />
     <Text Include="Users.txt" />
   </ItemGroup>
