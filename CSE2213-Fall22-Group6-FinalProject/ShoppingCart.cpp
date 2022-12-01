@@ -34,12 +34,17 @@ vector<InventoryItem> ShoppingCart::getCart() {
 void ShoppingCart::addItem(InventoryItem item, int quantity)
 {
     
+    
     if (quantity < 1 || item.getCount() < quantity) {
         cout << "item quantity is invalid" << endl;
         return;
     }
     for (int i = 0;i < Items.size();i++) {
         if (Items[i].getName() == item.getName()) {
+            if (Items[i].getCount() + quantity > item.getCount()) {
+                cout << "item quantity is invalid" << endl;
+                return;
+            }
             Items[i].setCount(Items[i].getCount() + quantity);
             cout << "Item added successfully!" << endl;
             return;
