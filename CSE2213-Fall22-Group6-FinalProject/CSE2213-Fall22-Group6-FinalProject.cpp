@@ -45,7 +45,6 @@ int main()             // The entirity of the main function currently is testing
                 cout << endl;
 
                 int LoggedinID = allUser.login(loginUsername, loginPassword);
-                cout << LoggedinID;
                 if (LoggedinID != -1) {
                     validLogIn = true;
                 }
@@ -56,7 +55,7 @@ int main()             // The entirity of the main function currently is testing
 
                 if (validLogIn) {
                     ShoppingCart test = ShoppingCart();
-                    cout << "Login sucessful" << endl << endl;
+                    cout << "Login successful" << endl << endl;
                     // Something to now gather the information based off of the returned userID from earlier. This is how all of the user functions will be created.
                     User currentUser = allUser.populateUser(LoggedinID);
                     int DeleteValue = 0; // DeleteValue checks to see if if the account has been deleted. If so, It breaks out off the loop, causing the user to be automatically logged out. Resets upon login to not cause issues.
