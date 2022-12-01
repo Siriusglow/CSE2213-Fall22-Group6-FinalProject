@@ -27,6 +27,7 @@ Order::~Order() {
 	outFile << orderNumber << '\t';
 	outFile << userID << '\t';
 	outFile << shippingAddress << '\t';
+	outFile << total << "\t";
 	outFile << datePlaced << '\t';
 	outFile << extraNotes << '\t';
 

@@ -152,7 +152,55 @@ int main()             // The entirity of the main function currently is testing
                                             cout << "\tPassword: " << currentUser.getPassword() << endl;
                                         }
                                         else if (MenuOption == 6) {
-                                            cout << "FIXME case 6 was called" << endl;      // FIXME, need order class to be implimented.
+                                            vector<Order> orderList;
+                                            ifstream infile;
+                                            infile.open("testOrder.txt");
+                                            string line;
+                                            int numOfOrders = 0;
+
+                                            // Loops
+                                            cout << "Order History:" << endl << "---------------------------------------------------------------" << endl;
+                                            while (getline(infile, line))
+                                            {
+                                                // Initial Variables
+                                                int readOrderID = -1;
+                                                int readUserID = 1;
+                                                string readUserAddress;
+                                                double readTotal = 0.00;
+                                                string readDate;
+                                                string readNotes;
+                                                string delimiter = "\t";
+
+                                                readOrderID = stoi(line.substr(0, line.find(delimiter)));
+                                                line.erase(0, line.find(delimiter) + delimiter.length());
+                                                readUserID = stoi(line.substr(0, line.find(delimiter)));
+                                                line.erase(0, line.find(delimiter) + delimiter.length());
+                                                readUserAddress = line.substr(0, line.find(delimiter));
+                                                line.erase(0, line.find(delimiter) + delimiter.length());
+                                                readTotal = stod(line.substr(0, line.find(delimiter)));
+                                                line.erase(0, line.find(delimiter) + delimiter.length());
+                                                readDate = line.substr(0, line.find(delimiter));
+                                                line.erase(0, line.find(delimiter) + delimiter.length());
+                                                readNotes = line.substr(0, line.find(delimiter));
+                                                
+                                                if (readUserID == LoggedinID) {
+                                                    cout
+                                                        << "Order Number:" << readOrderID << endl
+                                                        << "Address     :" << readUserAddress << endl
+                                                        << "Total       :" << readTotal << endl
+                                                        << "Date Placed :" << readDate << endl
+                                                        << "Notes       :" << readNotes << endl
+                                                        << "---------------------------------------------------------------" << endl;
+                                                    numOfOrders++;
+                                                }
+                                            }
+
+                                            if (numOfOrders == 0) {
+                                                cout << "No Past Orders" << endl << "---------------------------------------------------------------" << endl;
+                                            }
+
+                                            infile.close();
+
                                         }
                                         else if (MenuOption == 7) {
                                             cout << "Are you sure you want to delete your account? Once you delete your account, you cannot recover your information" << endl;
@@ -255,6 +303,7 @@ int main()             // The entirity of the main function currently is testing
                                     ctime_s(buff, sizeof buff, &value);
                                     dt = buff;
                                     dt.erase(std::remove(dt.begin(), dt.end(), '\n'), dt.cend());
+                                    dt.erase(std::remove(dt.begin(), dt.end(), '\t'), dt.cend());
 
                                     cout << "The local date and time is: " << dt;
                                     cout << endl << "Write any extra shipping or order notes here: ";
